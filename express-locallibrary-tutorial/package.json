@@ -19,7 +19,7 @@
     "express-rate-limit": "^6.9.0",
     "express-validator": "^7.0.1",
     "helmet": "^7.0.0",
-    "http-errors": "~1.6.3",
+    "http-errors": "~1.8.1",
     "luxon": "^3.4.0",
     "mongodb": "^5.7.0",
     "mongoose": "^7.4.2",
