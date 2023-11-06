@@ -185,6 +185,13 @@ exports.book_delete_post = asyncHandler(async (req, res, next) => {
 });
 
 // Display book update form on GET.
+const checkGenres = (allGenres, book) => {
+  for (const genre of allGenres) {
+    if (book.genre.indexOf(genre._id) > -1) {
+      genre.checked = 'true';
+    }
+  }
+};
 exports.book_update_get = asyncHandler(async (req, res, next) => {
   // Get book, authors and genres for form.
   const [book, allAuthors, allGenres] = await Promise.all([
@@ -201,13 +208,14 @@ exports.book_update_get = asyncHandler(async (req, res, next) => {
   }
 
   // Mark our selected genres as checked.
-  for (const genre of allGenres) {
+  checkGenres(allGenres, book);
+  /*for (const genre of allGenres) {
     for (const book_g of book.genre) {
       if (genre._id.toString() === book_g._id.toString()) {
         genre.checked = 'true';
       }
     }
-  }
+  }*/
 
   res.render('book_form', {
     title: 'Update Book',
@@ -218,6 +226,7 @@ exports.book_update_get = asyncHandler(async (req, res, next) => {
 });
 
 // Handle book update on POST.
+
 exports.book_update_post = [
   // Convert the genre to an array.
   (req, res, next) => {
@@ -272,9 +281,13 @@ exports.book_update_post = [
       ]);
 
       // Mark our selected genres as checked.
+      //checkGenres(allGenres, book);
+
       for (const genre of allGenres) {
-        if (book.genre.indexOf(genre._id) > -1) {
-          genre.checked = 'true';
+        for (const book_g of book.genre) {
+          if (genre._id.toString() === book_g._id.toString()) {
+            genre.checked = 'true';
+          }
         }
       }
       res.render('book_form', {

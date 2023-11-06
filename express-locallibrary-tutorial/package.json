@@ -1,19 +1,23 @@
 {
   "name": "express-locallibrary-tutorial",
   "version": "0.0.0",
-  "engines":{
+  "engines": {
     "node": ">=18.16.1"
   },
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www",
-    "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart"
+    "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart",
+    "complexity-report": "./node_modules/.bin/es6-plato -r -d ./report controllers2"
   },
   "dependencies": {
+    "cognitive-complexity-ts": "^0.6.5",
     "compression": "^1.7.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "escomplex": "^2.0.0-alpha",
+    "esprima": "^4.0.1",
     "express": "~4.16.1",
     "express-async-handler": "^1.2.0",
     "express-rate-limit": "^6.9.0",
@@ -25,5 +29,8 @@
     "mongoose": "^7.4.2",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "es6-plato": "^1.2.3"
   }
 }
