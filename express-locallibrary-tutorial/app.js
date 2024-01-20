@@ -20,7 +20,7 @@ app.use(limiter);
 const mongoose = require('mongoose');
 const { mainModule } = require('process');
 mongoose.set('strictQuery', false);
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB = 'mongodb+srv://admin:123@cluster0.msgu0nb.mongodb.net/authentication?retryWrites=true&w=majority';
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
