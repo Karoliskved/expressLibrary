@@ -22,7 +22,7 @@
     "http-errors": "~1.6.3",
     "luxon": "^3.4.0",
     "mongodb": "^5.7.0",
-    "mongoose": "^7.4.2",
+    "mongoose": "^7.5.3",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
   }
